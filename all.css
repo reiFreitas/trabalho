@@ -1,0 +1,335 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+
+body{
+    margin: 0;
+    font-family: 'Nunito_Sans', sans-serif;
+}
+
+body *{
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+
+.erros{
+    color: #ff0000;
+}
+
+img {
+  height: auto;
+  border-radius: 7px
+  display: block;
+  margin: 0 auto;
+}
+/* HOMEPAGE */
+.main-homepage{
+    background: #1E90FF;
+}
+
+#menu ul{
+    list-style: none;
+    background-color: #3768a8;
+    padding: 0;
+}
+#menu ul li {
+    display: inline;
+}
+
+#menu ul li a{
+    font-size: 8pt;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: 1px;
+    text-decoration: none;
+    padding: 25px;
+    display: inline-block;
+}
+#menu ul li a:hover{
+    background-color: #22508b;
+
+}
+
+#menu ul li:last-child a{
+    float: right;
+
+}
+
+
+@media only screen and (max-width: 950px){
+    #menu ul li a{
+        width: 85%;
+    }
+}
+@media only screen and (max-width: 600px){
+    #menu ul{
+        flex-direction: column;
+    }
+    #menu ul li a{
+        width: 100%;
+        height: auto;
+    }
+
+}
+
+
+.main{
+    width: 100vw;
+    height: 100vh;
+    background: #1E90FF;
+    /*background: #3768a8;*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.center{
+    width: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction:  column;
+}
+
+.card{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction:  column;
+    padding: 30px 40px;
+    background: #22508b;
+    border-radius: 20px;
+    box-shadow: 0px 10px 40px #192263;
+
+}
+
+
+
+.card>h1{
+    color: #00ff88;
+    font-weight: 800;
+    margin: 5;
+}
+
+.textfield-all{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+
+}
+
+.textfield-all> input {
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    padding: 15px;
+    background: #3768a8;
+    color: #ffffff;
+    font-size: 10pt;
+    box-shadow: 0px 10px 40px #192263;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.textfield-all> label {
+    color: #ffffff;
+    margin-bottom: 5px;
+}
+
+.textfield-all> input::placeholder{
+    color: #f0ffff94;
+}
+
+.btn{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    display: block;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 10px;
+    text-transform: uppercase;
+    font-size: 10pt;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: #ffffff;
+    background-color: #3768a8;
+    cursor: pointer;
+    box-shadow: 0px 10px 40px #192263;
+}
+
+.btn-2{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+    display: block;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 10px;
+    text-transform: uppercase;
+    font-size: 8pt;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: #ffffff;
+    background-color: #3768a8;
+    cursor: pointer;
+    box-shadow: 0px 10px 40px #192263;
+}
+
+.main-2{
+    width: 100vw;
+    height: 100vh;
+    background: #C0C0C0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.center-2{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction:  column;
+}
+
+.card-2{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction:  column;
+    padding: 30px 40px;
+    background: #808080;
+    border-radius: 20px;
+    box-shadow: 0px 10px 40px #000000;
+}
+
+.textfield-2{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+
+}
+
+.textfield-2> input {
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    padding: 15px;
+    background: #696969;
+    color: #ffffff;
+    font-size: 10pt;
+    box-shadow: 0px 10px 40px #000000;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.textfield-2> label {
+    color: #000000;
+    margin-bottom: 5px;
+}
+
+.textfield-2> input::placeholder{
+    color: #ffffff77;
+}
+
+.btn-3{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    display: block;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 10px;
+    text-transform: uppercase;
+    font-size: 10pt;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: #000000;
+    background-color: #696969;
+    cursor: pointer;
+    box-shadow: 0px 10px 40px #000000;
+}
+
+.btn-4{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+    display: block;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 10px;
+    text-transform: uppercase;
+    font-size: 8pt;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: #000000;
+    background-color: #696969;
+    cursor: pointer;
+    box-shadow: 0px 10px 40px #000000;
+}
+
+.resposta-chatgpt{
+    width: 50%;
+    text-align: center;
+    color: #ffffff;
+    margin-top: 20px;
+}
+.main-func{
+    background: #ffffff
+}
+
+.home-add{
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+a{
+    text-decoration: none;
+}
+
+table, th, td{
+    border: 1px solid #000000;
+    border-collapse: collapse;
+    padding: 5px 2px;
+}
+table{
+    width: 95%;
+}
+tr{
+    text-align: center;
+}
+th{
+    background-color: #808080;
+}
+tr:hover{
+    background-color: #adadad;
+}
+
+
+@media only screen and (max-width: 950px){
+    .card{
+        width: 85%;
+    }
+}
+@media only screen and (max-width: 600px){
+    .main{
+        flex-direction: column;
+    }
+    .center{
+        width: 100%;
+        height: auto;
+    }
+
+}

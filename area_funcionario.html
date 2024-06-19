@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename = 'all.css')}}">
+    <title>Funcionário</title>
+</head>
+<body>
+    {% if page == 'home' %}
+        <div class="main-func">
+            <div class="home-add">
+                <a href="{{ url_for('add') }}">Adicionar Ecobarreira</a>
+            </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nome ecobarreira</th>
+                            <th>Ambiente aquático</th>
+                            <th>Tipo de resíduos</th>
+                            <th>Material ecobarreira</th>
+                            <th>Ancoragem da ecobarreira</th>
+                            <th>Dimensões da ecobarreira</th>
+                            <th>Custo da ecobarreira</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {%for e in ecobarreira%}
+                    <tr>
+                        <td>{{e.nome_ecob}}</td>
+                        <td>{{e.amb_aqua}}</td>
+                        <td>{{e.tipo_residuos}}</td>
+                        <td>{{e.material_ecob}}</td>
+                        <td>{{e.ancoragem_ecob}}</td>
+                        <td>{{e.dimen_ecob}}</td>
+                        <td>{{e.custo_ecob}}</td>
+                        <td>
+                            <a href="/edit/{{e.id}}">Editar</a>
+                            <a href="/delete/{{e.id}}">Excluir</a>
+                        </td>
+                    </tr>
+                    {%endfor%}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    {% elif page == 'add' %}
+    <div class="main-2">
+        <div class="center-2">
+            <form method="post">
+                <div class="textfield-2">
+                    <input type="text" name="nome_ecob" id="nome_ecob" placeholder="Nome da ecobarreira" required>
+                </div>
+                <div class="textfield-2">
+                    <input type="text" name="amb_aqua" id="amb_aqua" placeholder="Ambiente aquático" required>
+                </div>
+                <div class="textfield-2">
+                    <input type="text" name="tipo_residuos" id="tipo_residuos" placeholder="Tipo de resíduos" required>
+                </div>
+                <div class="textfield-2">
+                    <input type="text" name="material_ecob" id="material_ecob" placeholder="Material da ecobarreira" required>
+                </div>
+                <div class="textfield-2">
+                    <input type="text" name="ancoragem_ecob" id="ancoragem_ecob" placeholder="Ancoragem da ecobarreira" required>
+                </div>
+                <div class="textfield-2">
+                    <input type="text" name="dimen_ecob" id="dimen_ecob" placeholder="Dimensões da ecobarreira" required>
+                </div>
+                <div class="textfield-2">
+                    <input type="text" name="custo_ecob" id="custo_ecob" placeholder="Custo da ecobarreira" required>
+                </div>
+                <button type="submit" class="btn-3">Enviar</button>
+            </form>
+        </div>
+    </div>
+    {% elif page == 'edit' %}
+    <div class="main-2">
+        <div class="center-2">
+            <form method="post">
+                <div class="textfield-2">
+                    <input type="text" name="nome_ecob" id="nome_ecob" placeholder="Nome da ecobarreira" value="{{ecobarreira.nome_ecob}}" required>
+                </div>
+                <div class="textfield-2">
+                    <input type="text" name="amb_aqua" id="amb_aqua" placeholder="Ambiente aquático" value="{{ecobarreira.amb_aqua}}" required>
+                </div>
+                <div class="textfield-2">
+                    <input type="text" name="tipo_residuos" id="tipo_residuos" placeholder="Tipo de resíduos" value="{{ecobarreira.tipo_residuos}}" required>
+                </div>
+                <div class="textfield-2">
+                    <input type="text" name="material_ecob" id="material_ecob" placeholder="Material da ecobarreira" value="{{ecobarreira.material_ecob}}" required>
+                </div>
+                <div class="textfield-2">
+                    <input type="text" name="ancoragem_ecob" id="ancoragem_ecob" placeholder="Ancoragem da ecobarreira" value="{{ecobarreira.ancoragem_ecob}}" required>
+                </div>
+                <div class="textfield-2">
+                    <input type="text" name="dimen_ecob" id="dimen_ecob" placeholder="Dimensões da ecobarreira" value="{{ecobarreira.dimen_ecob}}" required>
+                </div>
+                <div class="textfield-2">
+                    <input type="text" name="custo_ecob" id="custo_ecob" placeholder="Custo da ecobarreira" value="{{ecobarreira.custo_ecob}}" required>
+                </div>
+                <button type="submit" class="btn-3">Enviar</button>
+            </form>
+        </div>
+    </div>
+    {% elif page == 'cadastro_funcionario' %}
+    <div class="main-2">
+        <div>
+            <div class="card-2">
+                {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    <div class="erros">
+                        {% for msg in messages %}
+                            {{ msg }}
+                        {% endfor %}
+                    </div>
+                {% endif %}
+                {% endwith %}
+                <h1>PREENCHA OS DADOS</h1>
+                <form method="post">
+                    <div class="textfield-2">
+                        <label for="nome">Usuário:</label>
+                        <input type="text" id="nome" name="nome" placeholder="Usuário" required>
+                    </div>
+                    <div class="textfield-2">
+                        <label for="senha">Senha:</label>
+                        <input type="password" id="senha" name="senha" placeholder="Senha" required>
+                    </div>
+                    <button type="submit" class="btn-3">Cadastrar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    {% elif page == 'login_funcionario' %}
+    <div class="main-2">
+        <div>
+            <div class="card-2">
+                {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    <div class="erros">
+                        {% for msg in messages %}
+                            {{ msg }}
+                        {% endfor %}
+                    </div>
+                {% endif %}
+                {% endwith %}
+                <h1>ACESSO FUNCIONÁRIO</h1>
+                <form method="post">
+                    <div class="textfield-2">
+                        <label for="nome">Usuário:</label>
+                        <input type="text" id="nome" name="nome" placeholder="Usuário" required>
+                    </div>
+                    <div class="textfield-2">
+                        <label for="senha">Senha:</label>
+                        <input type="password" id="senha" name="senha" placeholder="Senha" required>
+                    </div>
+                    <button type="submit" class="btn-3">Entrar</button>
+                </form>
+                <form action="{{ url_for('cod_acesso') }}">
+                    <button type="submit" class="btn-4">Cadastrar<br>Funcionário</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    {% elif page == 'cod_acesso' %}
+    <div class="main-2">
+        <div class="card-2">
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="erros">
+                    {% for msg in messages %}
+                        {{ msg }}
+                    {% endfor %}
+                </div>
+            {% endif %}
+            {% endwith %}
+            <h1>Código de Acesso</h1>
+            <form method="post">
+                <div class="textfield-2">
+                    <input type="password" name="codigo" id="codigo" name="codigo" placeholder="Digite o código de acesso" required>
+                </div>
+                <button type="submit" class="btn-3">Enviar</button>
+            </form>
+        </div>
+    </div>
+    {% endif %}
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename = 'all.css')}}">
+    <title>Home</title>
+</head>
+<body>
+    {% if page == 'homepage'%}
+    <div class="">
+        <nav id="menu">
+            <ul>
+                <li><a href="{{ url_for ('homepage') }}" id="btn-home">HOME</a></li>
+                <li><a href="{{ url_for ('chatgpt') }}" id="btn-chatgpt">DESCUBRA A MELHOR ECOBARREIRA PARA O SEU PROJETO</a></li>
+                <li><a href="{{ url_for ('login_funcionario') }}" id="btn-area_vip">ÁREA FUNCIONÁRIO</a></li>
+                <li><a href="{{ url_for ('logout') }}" id="btn-logout"> SAIR</a></li>
+            </ul>
+        </nav>
+    </div>
+    {% elif page == 'cadastro' %}
+    <div class="main">
+        <div>
+            <div class="card">
+                {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    <div class="erros">
+                        {% for msg in messages %}
+                            {{ msg }}
+                        {% endfor %}
+                    </div>
+                {% endif %}
+                {% endwith %}
+                <h1>PREENCHA O CADASTRO</h1>
+                <form method="post">
+                    <div class="textfield-all">
+                        <label for="nome">Usuário:</label>
+                        <input type="text" id="nome" name="nome" placeholder="Usuário" required>
+                    </div>
+                    <div class="textfield-all">
+                        <label for="senha">Senha:</label>
+                        <input type="password" id="senha" name="senha" placeholder="Senha" required>
+                    </div>
+                    <button type="submit" class="btn">Cadastrar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    {% elif page == 'login' %}
+    <div class="main">
+        <div>
+            <div class="card">
+                {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    <div class="erros">
+                        {% for msg in messages %}
+                            {{ msg }}
+                        {% endfor %}
+                    </div>
+                {% endif %}
+                {% endwith %}
+                <h1>BEM VINDO</h1>
+                <form method="post">
+                    <div class="textfield-all">
+                        <label for="nome">Usuário:</label>
+                        <input type="text" id="nome" name="nome" placeholder="Usuário" required>
+                    </div>
+                    <div class="textfield-all">
+                        <label for="senha">Senha:</label>
+                        <input type="password" id="senha" name="senha" placeholder="Senha" required>
+                    </div>
+                    <button type="submit" class="btn">Entrar</button>
+                </form>
+                <form action="{{ url_for('cadastro') }}">
+                    <div>
+                        <button type="submit" class="btn-2">Criar<br>conta</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    {% elif page == 'chatgpt' %}
+    <div class="main">
+        <div class="center">
+            <form method="post">
+                <div class="textfield-all">
+                    <input type="text" name="amb_aqua" id="amb_aqua" placeholder="Ambiente aquático" required>
+                </div>
+                <div class="textfield-all">
+                    <input type="text" name="tipo_residuos" id="tipo_residuos" placeholder="Tipo de resíduos" required>
+                </div>
+                <div class="textfield-all">
+                    <input type="text" name="material_ecob" id="material_ecob" placeholder="Material da ecobarreira" required>
+                </div>
+                <div class="textfield-all">
+                    <input type="text" name="ancoragem_ecob" id="ancoragem_ecob" placeholder="Ancoragem da ecobarreira" required>
+                </div>
+                <div class="textfield-all">
+                    <input type="text" name="dimen_ecob" id="dimen_ecob" placeholder="Dimensões da ecobarreira" required>
+                </div>
+                <div class="textfield-all">
+                    <input type="text" name="custo_ecob" id="custo_ecob" placeholder="Custo da ecobarreira" required>
+                </div>
+                <button type="submit" class="btn">Perguntar</button>
+            </form>
+            <div class="resposta-chatgpt">
+                {{resposta}}
+            </div>
+        </div>
+    </div>
+    {% endif %}
+</body>
+</html>
